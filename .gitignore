@@ -1,0 +1,39 @@
+# Maven target directory
+/target/
+
+# Maven local repository
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+
+# Visual Studio Code specific files
+.vscode/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Compiled files
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Generated files
+*.dmp
+hs_err_pid*
+
+# Java test reports
+*.junit.xml
+*.coverage
+
+# Application specific
+/config/application.yml
