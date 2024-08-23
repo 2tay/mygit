@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.mygit.Repositery;
 
 public class FileHelper {
     
@@ -77,5 +81,37 @@ public class FileHelper {
             e.printStackTrace();
             return new byte[0];
         }
+    }
+
+    public static List<File> listAllDirFiles(String dirPath) {
+        List<File> allFiles = new ArrayList<>();
+        File dir = new File(dirPath);
+
+        if(dir.exists() && dir.isDirectory()) 
+        {
+            // list all files and directories
+            for(File file : dir.listFiles()) 
+            {
+                if(file.isDirectory())
+                {
+                    String mygitPath = Repositery.projectPath + File.separator + "mygit";
+
+                    // Skip mygit directory
+                    if(mygitPath.equals(file.getAbsolutePath()))
+                    {
+                        continue;
+                    }
+
+                    // Recuresively add files from subderictories
+                    allFiles.addAll(listAllDirFiles(file.getAbsolutePath()));
+                }
+                else if(file.isFile())
+                {
+                    allFiles.add(file);
+                }
+            }
+        }
+
+        return allFiles;
     }
 }
