@@ -1,5 +1,6 @@
 package com.example.mygit;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,9 +17,9 @@ public class Repositery {
     }
 
     public void InitializeRepo() {
-        String mygitDirPath = projectPath + "/mygit";
-        String snapshotsDirPath = mygitDirPath + "/snapshots";
-        String HeadFilePath = mygitDirPath + "/HEAD";
+        String mygitDirPath = projectPath + File.separator + "mygit";
+        String snapshotsDirPath = mygitDirPath + File.separator + "snapshots";
+        String HeadFilePath = mygitDirPath + File.separator + "HEAD";
 
         if(!FileHelper.checkFolderExist(mygitDirPath)) {
             // Create mygit Repo in porject
@@ -26,9 +27,10 @@ public class Repositery {
             FileHelper.createDirectory(snapshotsDirPath);
             FileHelper.createFile(HeadFilePath);
         }
+        else {
+            System.out.println("mygit ALready Initialized!");
+        }
     }
 
-    public void trackFile(String filePath) {
-        trackedFiles.add(filePath);
-    }
+
 }

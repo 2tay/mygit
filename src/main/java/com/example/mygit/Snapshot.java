@@ -25,6 +25,7 @@ public class Snapshot {
 
         if(!snapshotDir.exists()) {
             System.err.println("Failed: you must initialized mygit first");
+            return;
         }
 
         // snapshot file
