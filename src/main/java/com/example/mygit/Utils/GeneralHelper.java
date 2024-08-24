@@ -1,11 +1,18 @@
 package com.example.mygit.Utils;
 
+import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.example.mygit.Repositery;
+
 public class GeneralHelper {
+        public static String mygitDirPath = Repositery.projectPath + File.separator + "mygit";
+        public static String snapshotsDirPath = mygitDirPath + File.separator + "snapshots";
+        public static String commitsDirPath = mygitDirPath + File.separator + "commits";
+        public static String HeadFilePath = mygitDirPath + File.separator + "HEAD";
 
     public static String hashData(byte[] data) {
         try {

@@ -114,4 +114,22 @@ public class FileHelper {
 
         return allFiles;
     }
+
+    public static File searchFile(File dir, String fileName) {
+        File[] dirFiles = dir.listFiles();
+        if(dirFiles != null) {
+            for(File dirFile : dirFiles) {
+                if(dirFile.isFile() && dirFile.getName().equals(fileName)) {
+                    System.out.println("Found file: " + dirFile.getAbsolutePath());
+                    return dirFile;
+                }
+                else if(dirFile.isDirectory()) {
+                    searchFile(dirFile, fileName);
+                }
+            }
+            System.out.println("Failed to found file: " + fileName);
+        }
+        System.out.println("Failed: no files in directory: " + dir.getAbsolutePath());
+        return null;
+    }
 }
