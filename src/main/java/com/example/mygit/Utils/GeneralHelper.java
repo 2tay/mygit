@@ -2,6 +2,8 @@ package com.example.mygit.Utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class GeneralHelper {
 
@@ -34,4 +36,11 @@ public class GeneralHelper {
             return null;
         }
     }
+
+    // Method to get the current timestamp
+    public static String getCurrentTimestamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(new Date());
+    }
+
 }

@@ -19,18 +19,22 @@ public class Repositery {
     public void InitializeRepo() {
         String mygitDirPath = projectPath + File.separator + "mygit";
         String snapshotsDirPath = mygitDirPath + File.separator + "snapshots";
+        String commitsDirPath = mygitDirPath + File.separator + "commits";
         String HeadFilePath = mygitDirPath + File.separator + "HEAD";
 
         if(!FileHelper.checkFolderExist(mygitDirPath)) {
             // Create mygit Repo in porject
             FileHelper.createDirectory(mygitDirPath);
             FileHelper.createDirectory(snapshotsDirPath);
+            FileHelper.createDirectory(commitsDirPath);
             FileHelper.createFile(HeadFilePath);
         }
         else {
             System.out.println("mygit ALready Initialized!");
         }
     }
+
+
 
 
 }
